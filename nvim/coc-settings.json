@@ -13,6 +13,5 @@
   "coc.preferences.useQuickfixForLocations": true,
   "explorer.icon.enableNerdfont": true,
   "tsserver.maxTsServerMemory": 2000,
-  "explorer.file.showHiddenFiles": true,
-  "coc.preferences.jumpCommand": "tab drop"
+  "explorer.file.showHiddenFiles": true
 }
