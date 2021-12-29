@@ -110,7 +110,7 @@ require('luatab').setup({})
 require('hop').setup({ keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5 })
 
 -- key mappings
-nnoremap('<CR>', ':wa<CR>')
+nnoremap('<leader><leader>', ':wa<CR>')
 nnoremap('<C-j>', ':cnext<CR>')
 nnoremap('<C-k>', ':cprev<CR>')
 -- Open [g]it dashboard 
