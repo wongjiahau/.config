@@ -144,7 +144,6 @@ nnoremap('<Leader>t', ':HopWord<CR>')
 -- vim settings
 o.clipboard = o.clipboard .. 'unnamedplus'
 o.number = true
-o.relativenumber = true
 o.autowrite = true
 o.smartcase = true
 o.ignorecase = true
