@@ -2,6 +2,11 @@ fish_vi_key_bindings
 set -gx PATH $HOME/.cargo/bin $PATH
 set -x PATH ~/npm/bin:$PATH
 
+# This is needed to solve Powerline not being rendered inside tmux
+# Refer https://github.com/gpakosz/.tmux/issues/171#issuecomment-426048355
+set -gx LC_ALL en_US.UTF-8
+
+
 # Solve SSH cannot open connection issue
 # Refer https://gist.github.com/gerbsen/5fd8aa0fde87ac7a2cae
 setenv SSH_ENV $HOME/.ssh/environment
@@ -38,6 +43,4 @@ else
         start_agent
     end  
 end
-## This is to solve locale error when starting Postgres
-set -gx LC_ALL C
 
