@@ -182,3 +182,9 @@ hi CocErrorVirtualText guibg=pink guifg=darkred
 hi CocInfoLine guibg=#fab005
 hi CocInfoVirtualText guibg=#fab005 guifg=darkred
 ]]
+
+-- Treat dash as part of a word
+-- Refer https://vi.stackexchange.com/a/13813/31905
+vim.cmd [[
+set iskeyword+=-
+]]
