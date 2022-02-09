@@ -13,5 +13,6 @@
   "coc.preferences.useQuickfixForLocations": true,
   "explorer.icon.enableNerdfont": true,
   "tsserver.maxTsServerMemory": 2000,
+  "tsserver.enableJavascript": false,
   "explorer.file.showHiddenFiles": true
 }
