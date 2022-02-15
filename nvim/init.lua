@@ -30,7 +30,7 @@ require('nvim-treesitter.configs').setup({
 require('nvim-autopairs').setup({})
 
 -- COC settings
-g.coc_global_extensions = {'coc-json', 'coc-explorer', 'coc-tsserver', 'coc-prettier'}
+g.coc_global_extensions = {'coc-json', 'coc-explorer', 'coc-tsserver'}
 -- Open file tree explorer (N-erdTree)
 nnoremap('<Leader>n', ':CocCommand explorer<CR>')
 g.coc_enable_locationlist = 0
@@ -179,4 +179,13 @@ hi CocInfoVirtualText guibg=#fab005 guifg=darkred
 -- Refer https://vi.stackexchange.com/a/13813/31905
 vim.cmd [[
 set iskeyword+=-
+]]
+
+-- Auto format on save
+-- Refer https://github.com/sbdchd/neoformat#basic-usage
+vim.cmd [[
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 ]]

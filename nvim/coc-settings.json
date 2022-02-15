@@ -2,14 +2,6 @@
   "diagnostic.errorSign": "▶",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "json",
-    "javascriptreact",
-    "typescriptreact",
-    "graphql"
-  ],
   "coc.preferences.useQuickfixForLocations": true,
   "explorer.icon.enableNerdfont": true,
   "tsserver.maxTsServerMemory": 2000,
