@@ -95,14 +95,6 @@ require('telescope').setup({
   }
 })
 
--- neogit settings
-require('neogit').setup({
-  disable_commit_confirmation = true,
-  integrations = {
-    diffview = true
-  }
-})
-
 -- https://github.com/alvarosevilla95/luatab.nvim
 require('luatab').setup({})  
 
