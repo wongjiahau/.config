@@ -9,8 +9,6 @@ endif
 
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
-  -- Packer can manage itself
-  Plug 'wbthomason/packer.nvim'
   Plug ('neoclide/coc.nvim', {branch = 'release'})
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
