@@ -150,6 +150,7 @@ o.ttimeoutlen = 10
 o.mouse = 'a'
 o.inccommand = 'nosplit' -- For viewing live substitution
 o.hidden = true -- to ensure terminal remains alive
+o.relativenumber = true
 
 -- colorscheme
 vim.g.vscode_style = "light"
