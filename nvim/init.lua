@@ -67,12 +67,15 @@ vim.cmd [[
 
 -- lualine settings
 require('lualine').setup({ 
+  options = {
+    theme = 'ayu_mirage',
+  },
   sections = {
     lualine_a = {{'filename', path = 1}},
     lualine_b = {'g:coc_status'},
     lualine_c = {{'diagnostics', sources = {'coc'}}},
     lualine_x = {},
-    lualine_y = {},
+    lualine_y = {'progress'},
     lualine_z = {'branch'}
   },
 })
