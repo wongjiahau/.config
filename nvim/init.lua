@@ -4,26 +4,23 @@ local wo = vim.wo
 local bo = vim.bo
 local g = vim.g
 local function nnoremap(key, cmd)
-  vim.api.nvim_set_keymap('n', key, cmd, { noremap = true })
+    vim.api.nvim_set_keymap('n', key, cmd, {noremap = true})
 end
 local function vnoremap(key, cmd)
-  vim.api.nvim_set_keymap('v', key, cmd, { noremap = true })
+    vim.api.nvim_set_keymap('v', key, cmd, {noremap = true})
 end
 
 -- Set leader
 g.mapleader = " "
 
-
 -- Tree sitter settings
 require('nvim-treesitter.configs').setup({
-  autotag = {
-    enable = true
-  },
-  ensure_installed = "all",
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { },  -- list of language that will be disabled
-  },
+    autotag = {enable = true},
+    ensure_installed = "all",
+    highlight = {
+        enable = true, -- false will disable the whole extension
+        disable = {} -- list of language that will be disabled
+    }
 })
 
 -- Autopair settings
@@ -66,43 +63,35 @@ vim.cmd [[
 ]]
 
 -- lualine settings
-require('lualine').setup({ 
-  options = {
-    theme = 'ayu_mirage',
-  },
-  sections = {
-    lualine_a = {{'filename', path = 1}},
-    lualine_b = {'g:coc_status'},
-    lualine_c = {{'diagnostics', sources = {'coc'}}},
-    lualine_x = {},
-    lualine_y = {'progress'},
-    lualine_z = {'branch'}
-  },
+require('lualine').setup({
+    options = {theme = 'ayu_mirage'},
+    sections = {
+        lualine_a = {{'filename', path = 1}},
+        lualine_b = {'g:coc_status'},
+        lualine_c = {{'diagnostics', sources = {'coc'}}},
+        lualine_x = {},
+        lualine_y = {'progress'},
+        lualine_z = {'branch'}
+    }
 })
 
 -- diffview settings
 require('diffview').setup({
-  file_panel = {
-    position = 'top',
-    height = 6,
-    tree_options = {
-      flatten_dirs = false
+    file_panel = {
+        position = 'top',
+        height = 6,
+        tree_options = {flatten_dirs = false}
     }
-  }
 })
 
 -- telescope settings
-require('telescope').setup({
-  defaults = {
-    preview = false
-  }
-})
+require('telescope').setup({defaults = {preview = false}})
 
 -- https://github.com/alvarosevilla95/luatab.nvim
-require('luatab').setup({})  
+require('luatab').setup({})
 
 -- https://github.com/phaazon/hop.nvim
-require('hop').setup({ keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5 })
+require('hop').setup({keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5})
 
 -- key mappings
 nnoremap('<CR>', ':wa<CR>')
