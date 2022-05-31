@@ -40,7 +40,7 @@ vim.cmd [[
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
   nmap <silent> gh :call Show_documentation()<CR>
-  nmap <silent> <Leader>, :CocAction<CR>
+  nmap <silent> <Leader>, <Plug>(coc-codeaction)<CR>
   nmap <Leader>r <Plug>(coc-rename)
 
   function! Show_documentation()
