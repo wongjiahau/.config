@@ -169,6 +169,18 @@ hi CocInfoLine guibg=#fab005
 hi CocInfoVirtualText guibg=#fab005 guifg=darkred
 ]]
 
+-- Telescope colors
+vim.cmd [[
+hi TelescopeSelection guibg=yellow
+]]
+
+-- Vim built-in menu
+-- Refer https://vi.stackexchange.com/a/12665/31905
+vim.cmd [[
+hi PmenuSel guibg=yellow
+hi Pmenu guibg=blue guifg=white
+]]
+
 -- Treat dash as part of a word
 -- Refer https://vi.stackexchange.com/a/13813/31905
 vim.cmd [[
