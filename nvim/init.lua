@@ -145,7 +145,8 @@ o.hidden = true -- to ensure terminal remains alive
 o.relativenumber = true
 
 -- colorscheme
-vim.g.vscode_style = "light"
+vim.o.background = "light"
+vim.g.vscode_transparent = 1
 vim.cmd [[colorscheme vscode]]
 
 -- tabline colors
