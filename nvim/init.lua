@@ -77,11 +77,7 @@ require('lualine').setup({
 
 -- diffview settings
 require('diffview').setup({
-    file_panel = {
-        position = 'top',
-        height = 6,
-        tree_options = {flatten_dirs = false}
-    }
+    file_panel = {win_config = {tree_options = {flatten_dirs = false}}}
 })
 
 -- telescope settings
@@ -177,8 +173,7 @@ hi TelescopeSelection guibg=yellow
 -- Vim built-in menu
 -- Refer https://vi.stackexchange.com/a/12665/31905
 vim.cmd [[
-hi PmenuSel guibg=yellow
-hi Pmenu guibg=blue guifg=white
+hi PmenuSel guibg=lightblue
 ]]
 
 -- Treat dash as part of a word
