@@ -160,10 +160,10 @@ hi Visual guibg=yellow
 
 -- COC colors
 vim.cmd [[
-hi CocErrorLine guibg=#fff3f4
-hi CocErrorVirtualText guibg=#fff3f4 guifg=darkred
-hi CocInfoLine guibg=#ffe7ea
-hi CocInfoVirtualText guibg=#ffe7ea guifg=orange
+hi CocErrorLine guibg=#ffe7ea
+hi CocErrorVirtualText guibg=#ffe7ea guifg=darkred
+hi CocInfoLine guibg=#fffcbb
+hi CocInfoVirtualText guibg=#fffcbb guifg=orange
 ]]
 
 -- Telescope colors
