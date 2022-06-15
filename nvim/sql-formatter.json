@@ -1,0 +1,5 @@
+{
+  "__comment": "Refer https://github.com/sql-formatter-org/sql-formatter",
+  "language": "postgresql",
+  "keywordCase": "upper"
+}
