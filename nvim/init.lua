@@ -115,7 +115,7 @@ nnoremap('<Leader>b', ':Telescope buffers<CR>')
 -- Global [f]ind
 nnoremap('<Leader>f', ':Telescope live_grep<cr>')
 -- Open current file [h]istory
-nnoremap('<Leader>h', ':DiffviewFileHistory<CR>')
+nnoremap('<Leader>h', ':DiffviewFileHistory %<CR>')
 -- Toggle hop.nvim
 nnoremap('<Leader>t', ':HopWord<CR>')
 
