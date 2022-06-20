@@ -6,5 +6,13 @@
   "explorer.icon.enableNerdfont": true,
   "tsserver.maxTsServerMemory": 2000,
   "tsserver.enableJavascript": false,
-  "explorer.file.showHiddenFiles": true
+  "explorer.file.showHiddenFiles": true,
+  "languageserver": {
+    "graphql": {
+      "command": "graphql-lsp",
+      "args": ["server", "-m", "stream"],
+      "filetypes": ["typescript", "typescriptreact", "graphql"],
+      "trace.server": "verbose"
+    }
+  }
 }
