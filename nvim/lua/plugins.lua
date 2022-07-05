@@ -27,5 +27,6 @@ Plug 'Mofiqul/vscode.nvim'
 Plug('iamcco/markdown-preview.nvim', {['do'] = 'cd app && npm install'})
 Plug 'phaazon/hop.nvim'
 Plug 'sbdchd/neoformat'
+Plug 'lewis6991/gitsigns.nvim'
 vim.call('plug#end')
 
