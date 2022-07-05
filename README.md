@@ -19,3 +19,4 @@ git clone https://github.com/wongjiahau/.config ~/.config
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [prettierd](https://github.com/fsouza/prettierd)
+- [sql-formatter@4.0.2](https://github.com/sql-formatter-org/sql-formatter/tree/v4.0.2)

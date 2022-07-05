@@ -5,7 +5,7 @@ endfunction
 function! neoformat#formatters#sql#sqlformatter() abort
     return {
         \ 'exe': 'sql-formatter',
-        \ 'args': ['-l postgresql', '-c ~/.config/nvim/sql-formatter.json'],
+        \ 'args': ['-l postgresql', '-u'],
         \ 'stdin': 1
         \ }
 endfunction
