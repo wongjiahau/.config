@@ -43,6 +43,11 @@ vim.cmd [[
   xmap <Leader>,  v<Plug>(coc-codeaction-selected)
   nmap <Leader>,  v<Plug>(coc-codeaction-selected)
   nmap <Leader>r <Plug>(coc-rename)
+  nmap <silent> <leader>e <Plug>(coc-diagnostic-next-error)
+  nmap <silent> <leader>E <Plug>(coc-diagnostic-prev-error)
+
+  nmap <silent> <leader>w <Plug>(coc-diagnostic-next)
+  nmap <silent> <leader>W <Plug>(coc-diagnostic-prev)
 
   function! Show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
@@ -54,11 +59,6 @@ vim.cmd [[
     endif
   endfunction
   
-  try
-      nmap <Leader>e :call CocAction('diagnosticNext')<cr>
-      nmap <Leader>E :call CocAction('diagnosticPrevious')<cr>
-  endtry
-
   " Press Enter to use the first suggestion
   inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 ]]
