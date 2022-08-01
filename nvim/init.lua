@@ -60,7 +60,11 @@ vim.cmd [[
   endfunction
   
   " Press Enter to use the first suggestion
-  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  " Make <CR> to accept selected completion item or notify coc.nvim to format
+  " <C-g>u breaks current undo, please make your own choice.
+  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 ]]
 
 -- lualine settings
@@ -87,8 +91,6 @@ require('telescope').setup({defaults = {preview = false}})
 -- https://github.com/alvarosevilla95/luatab.nvim
 require('luatab').setup({})
 
--- https://github.com/phaazon/hop.nvim
-require('hop').setup({keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5})
 
 -- key mappings
 nnoremap('<CR>', ':wa<CR>')
@@ -168,7 +170,7 @@ hi CocInfoVirtualText guibg=#fffcbb guifg=orange
 
 -- Telescope colors
 vim.cmd [[
-hi TelescopeSelection guibg=yellow
+hi TelescopeSelection guibg=yellow guifg=black
 ]]
 
 -- Vim built-in menu
