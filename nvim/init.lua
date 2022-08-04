@@ -168,12 +168,6 @@ hi CocInfoLine guibg=#fffcbb
 hi CocInfoVirtualText guibg=#fffcbb guifg=orange
 ]]
 
--- Vim built-in menu
--- Refer https://vi.stackexchange.com/a/12665/31905
-vim.cmd [[
-hi PmenuSel guibg=lightblue
-]]
-
 -- Treat dash as part of a word
 -- Refer https://vi.stackexchange.com/a/13813/31905
 vim.cmd [[
