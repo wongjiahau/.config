@@ -168,11 +168,6 @@ hi CocInfoLine guibg=#fffcbb
 hi CocInfoVirtualText guibg=#fffcbb guifg=orange
 ]]
 
--- Telescope colors
-vim.cmd [[
-hi TelescopeSelection guibg=yellow guifg=black
-]]
-
 -- Vim built-in menu
 -- Refer https://vi.stackexchange.com/a/12665/31905
 vim.cmd [[
