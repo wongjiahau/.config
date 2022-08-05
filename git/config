@@ -1,7 +1,3 @@
-[user]
-    name = Wong Jia Hau
-    email = hou32hou@gmail.com
-
 [core]
     editor = nvim
 
