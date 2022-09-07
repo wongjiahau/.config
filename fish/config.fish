@@ -7,6 +7,7 @@ set -x PATH ~/npm/bin:$PATH
 # Refer https://github.com/gpakosz/.tmux/issues/171#issuecomment-426048355
 set -gx LC_ALL en_US.UTF-8
 
+fish_default_key_bindings
 
 # Solve SSH cannot open connection issue
 # Refer https://gist.github.com/gerbsen/5fd8aa0fde87ac7a2cae
