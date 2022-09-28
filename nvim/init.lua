@@ -160,6 +160,7 @@ require("mason-tool-installer").setup({
 		{ "sql-formatter", version = "4.0.2" },
 		"stylua",
 		"typescript-language-server",
+		"graphql-language-service-cli",
 	},
 
 	-- if set to true this will check each tool for updates. If updates
