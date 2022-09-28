@@ -37,7 +37,7 @@ require('lualine').setup({
         lualine_a = {{'filename', path = 1}},
         lualine_b = {'g:coc_status'},
         lualine_c = {{'diagnostics', sources = {'nvim_lsp'}}},
-        lualine_x = {'data', "require'lsp-status'.status()"},
+        lualine_x = {},
         lualine_y = {'progress'},
         lualine_z = {'branch'}
     }
@@ -149,12 +149,6 @@ require("nvim-tree").setup()
 nnoremap('<Leader>n', ':NvimTreeFindFileToggle<CR>')
 
 
-
--- https://github.com/nvim-lua/lsp-status.nvim
-local lsp_status = require('lsp-status')
-lsp_status.register_progress()
-
-
 -- LSP Setup https://github.com/neovim/nvim-lspconfig
 
 -- Mappings.
@@ -254,3 +248,6 @@ require("lsp_lines").setup()
 vim.diagnostic.config({
   virtual_text = false,
 })
+
+-- https://github.com/j-hui/fidget.nvim
+require"fidget".setup{}

@@ -33,6 +33,6 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'nvim-lua/lsp-status.nvim'
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+Plug 'j-hui/fidget.nvim'
 vim.call('plug#end')
