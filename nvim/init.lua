@@ -26,46 +26,9 @@ require('nvim-treesitter.configs').setup({
 -- Autopair settings
 require('nvim-autopairs').setup({})
 
--- COC settings
-g.coc_global_extensions = {'coc-json', 'coc-explorer', 'coc-tsserver'}
--- Open file tree explorer (N-erdTree)
-nnoremap('<Leader>n', ':CocCommand explorer<CR>')
-g.coc_enable_locationlist = 0
 -- Make sure all types of *.graphql files get syntax highlighting.
 -- This is necessary for coc-prettier to work
 vim.cmd('autocmd BufNewFile,BufRead *.graphql set ft=graphql')
-vim.cmd [[
-  nmap gd <Plug>(coc-definition)
-  nmap <silent> gy <Plug>(coc-type-definition)
-  nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gr <Plug>(coc-references)
-  nmap <silent> gh :call Show_documentation()<CR>
-  xmap <Leader>,  v<Plug>(coc-codeaction-selected)
-  nmap <Leader>,  v<Plug>(coc-codeaction-selected)
-  nmap <Leader>r <Plug>(coc-rename)
-  nmap <silent> <leader>e <Plug>(coc-diagnostic-next-error)
-  nmap <silent> <leader>E <Plug>(coc-diagnostic-prev-error)
-
-  nmap <silent> <leader>w <Plug>(coc-diagnostic-next)
-  nmap <silent> <leader>W <Plug>(coc-diagnostic-prev)
-
-  function! Show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-      execute 'h '.expand('<cword>')
-    elseif (coc#rpc#ready())
-      call CocActionAsync('doHover')
-    else
-      execute '!' . &keywordprg . " " . expand('<cword>')
-    endif
-  endfunction
-  
-  " Press Enter to use the first suggestion
-  " Make <CR> to accept selected completion item or notify coc.nvim to format
-  " <C-g>u breaks current undo, please make your own choice.
-  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-]]
 
 -- lualine settings
 require('lualine').setup({
@@ -73,8 +36,8 @@ require('lualine').setup({
     sections = {
         lualine_a = {{'filename', path = 1}},
         lualine_b = {'g:coc_status'},
-        lualine_c = {{'diagnostics', sources = {'coc'}}},
-        lualine_x = {},
+        lualine_c = {{'diagnostics', sources = {'nvim_lsp'}}},
+        lualine_x = {'data', "require'lsp-status'.status()"},
         lualine_y = {'progress'},
         lualine_z = {'branch'}
     }
@@ -160,13 +123,6 @@ hi NormalFloat guibg=#fbf1c7
 hi Visual guibg=yellow
 ]]
 
--- COC colors
-vim.cmd [[
-hi CocErrorLine guibg=#ffe7ea
-hi CocErrorVirtualText guibg=#ffe7ea guifg=darkred
-hi CocInfoLine guibg=#fffcbb
-hi CocInfoVirtualText guibg=#fffcbb guifg=orange
-]]
 
 -- Treat dash as part of a word
 -- Refer https://vi.stackexchange.com/a/13813/31905
@@ -185,3 +141,116 @@ augroup END
 
 -- https://github.com/lewis6991/gitsigns.nvim
 require('gitsigns').setup()
+
+-- https://github.com/kyazdani42/nvim-tree.lua
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+require("nvim-tree").setup()
+nnoremap('<Leader>n', ':NvimTreeFindFileToggle<CR>')
+
+
+
+-- https://github.com/nvim-lua/lsp-status.nvim
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
+
+
+-- LSP Setup https://github.com/neovim/nvim-lspconfig
+
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '<space>E', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<space>e', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'gh', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>,', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  lsp_status.on_attach(client, bufnr)
+end
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+local lsp_options = {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities
+}
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+require('lspconfig')['tsserver'].setup(lsp_options)
+
+require('lspconfig')['rust_analyzer'].setup(lsp_options)
+
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#graphql
+require('lspconfig').graphql.setup {
+  on_attach = on_attach,
+  flags = flags,
+  capabilities,
+  filetypes = { "graphql", "typescriptreact", "javascriptreact", "typescript" }
+}
+
+-- https://github.com/hrsh7th/nvim-cmp
+local cmp = require 'cmp'
+
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+-- LSP Lines (https://git.sr.ht/~whynothugo/lsp_lines.nvim#installation)
+require("lsp_lines").setup()
+-- Disable virtual_text since it's redundant due to lsp_lines.
+vim.diagnostic.config({
+  virtual_text = false,
+})

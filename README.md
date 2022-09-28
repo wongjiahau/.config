@@ -17,7 +17,17 @@ git clone https://github.com/wongjiahau/.config ~/.config
 
 ### Dependencies
 
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [prettierd](https://github.com/fsouza/prettierd)
-- [sql-formatter@4.0.2](https://github.com/sql-formatter-org/sql-formatter/tree/v4.0.2)
-- [graphql-language-service-cli](https://www.npmjs.com/package/graphql-language-service-cli)
+Node:
+
+```
+npm install -g typescript-language-server typescript
+npm install -g graphql-language-service-cli
+npm install -g sql-formatter@4.0.2
+npm install -g @fsouza/prettierd
+```
+
+Rust:
+
+```
+cargo install ripgrep
+```

@@ -9,7 +9,6 @@ endif
 
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
-Plug('neoclide/coc.nvim', {branch = 'release'})
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -25,8 +24,15 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'alvarosevilla95/luatab.nvim'
 Plug 'Mofiqul/vscode.nvim'
 Plug('iamcco/markdown-preview.nvim', {['do'] = 'cd app && npm install'})
-Plug 'phaazon/hop.nvim'
 Plug 'sbdchd/neoformat'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-lua/lsp-status.nvim'
+Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 vim.call('plug#end')
-
