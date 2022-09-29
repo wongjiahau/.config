@@ -81,6 +81,8 @@ nnoremap("<Leader>f", ":Telescope live_grep<cr>")
 nnoremap("<Leader>h", ":DiffviewFileHistory %<CR>")
 -- Toggle hop.nvim
 nnoremap("<Leader>t", ":HopWord<CR>")
+-- Toggle code action
+nnoremap("<Leader>,", ":CodeActionMenu<CR>")
 
 -- vim settings
 o.clipboard = o.clipboard .. "unnamedplus"
@@ -223,7 +225,6 @@ local on_attach = function(client, bufnr)
 	end, bufopts)
 	vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, bufopts)
-	vim.keymap.set("n", "<space>,", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 end
 
@@ -321,3 +322,10 @@ vim.diagnostic.config({
 
 -- https://github.com/j-hui/fidget.nvim
 require("fidget").setup({})
+
+-- https://github.com/NvChad/nvim-colorizer.lua
+require("colorizer").setup()
+
+-- https://github.com/weilbith/nvim-code-action-menu#window-appearance
+vim.g.code_action_menu_show_details = false
+vim.g.code_action_menu_show_diff = false

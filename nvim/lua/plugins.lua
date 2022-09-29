@@ -44,4 +44,7 @@ Plug("j-hui/fidget.nvim")
 Plug("williamboman/mason.nvim")
 Plug("williamboman/mason-lspconfig.nvim")
 Plug("WhoIsSethDaniel/mason-tool-installer.nvim")
+
+Plug("NvChad/nvim-colorizer.lua")
+Plug("weilbith/nvim-code-action-menu")
 vim.call("plug#end")
