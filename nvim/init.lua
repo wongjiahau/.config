@@ -272,6 +272,22 @@ require("lspconfig").graphql.setup({
 	filetypes = { "graphql", "typescriptreact", "javascriptreact", "typescript" },
 })
 
+-- https://github.com/lighttiger2505/sqls
+require("lspconfig").sqls.setup({
+	on_attach,
+	capabilities,
+	settings = {
+		sqls = {
+			connections = {
+				{
+					driver = "postgresql",
+					dataSourceName = "host=127.0.0.1 port=5432 user=postgres password='' dbname=postgres sslmode=disable",
+				},
+			},
+		},
+	},
+})
+
 -- https://github.com/hrsh7th/nvim-cmp
 local cmp = require("cmp")
 

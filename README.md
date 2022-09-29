@@ -5,29 +5,31 @@ directory does not exists.
 
 To backup your existing config, consider renaming the folder. For example,
 
-```sh
+```fish
 mv ~/.config ~/.config_backup
 ```
 
 ## Installation
 
-```
+```fish
 git clone https://github.com/wongjiahau/.config ~/.config
 ```
 
 ### Dependencies
 
-Node:
-
-```
-npm install -g typescript-language-server typescript
-npm install -g graphql-language-service-cli
-npm install -g sql-formatter@4.0.2
-npm install -g @fsouza/prettierd
-```
-
 Rust:
 
-```
+```fish
+# Needed by Neovim Spectre
 cargo install ripgrep
+```
+
+Go:
+
+```fish
+# Needed for SQL Language server
+git clone https://github.com/lighttiger2505/sqls.git
+cd sqls
+go build
+mv sqls /usr/local/bin
 ```

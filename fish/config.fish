@@ -1,6 +1,9 @@
 fish_default_key_bindings
 set -gx PATH $HOME/.cargo/bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
+set -gx PATH /usr/local/go/bin $PATH
+set -gx PATH $GOPATH/bin $PATH
+
 set -x PATH ~/npm/bin:$PATH
 
 # This is needed to solve Powerline not being rendered inside tmux
