@@ -194,13 +194,13 @@ vim.keymap.set("n", "<space>E", function()
 	vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, opts)
 vim.keymap.set("n", "<space>W", function()
-	vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN })
+	vim.diagnostic.goto_prev({ severity = { max = vim.diagnostic.severity.WARN } })
 end, opts)
 vim.keymap.set("n", "<space>e", function()
 	vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, opts)
 vim.keymap.set("n", "<space>w", function()
-	vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN })
+	vim.diagnostic.goto_next({ severity = { max = vim.diagnostic.severity.WARN } })
 end, opts)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
@@ -271,6 +271,9 @@ require("lspconfig").graphql.setup({
 	capabilities,
 	filetypes = { "graphql", "typescriptreact", "javascriptreact", "typescript" },
 })
+
+-- https://github.com/lighttiger2505/sqls
+require("lspconfig").sqls.setup(lsp_options)
 
 -- https://github.com/hrsh7th/nvim-cmp
 local cmp = require("cmp")
