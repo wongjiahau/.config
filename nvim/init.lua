@@ -275,7 +275,12 @@ require("lspconfig").graphql.setup({
 -- https://github.com/hrsh7th/nvim-cmp
 local cmp = require("cmp")
 
+local lspkind = require("lspkind")
 cmp.setup({
+	-- https://github.com/onsails/lspkind.nvim#option-2-nvim-cmp
+	formatting = {
+		format = lspkind.cmp_format(),
+	},
 	snippet = {
 		expand = function(args)
 			vim.fn["vsnip#anonymous"](args.body)
