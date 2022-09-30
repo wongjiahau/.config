@@ -37,6 +37,7 @@ Plug("hrsh7th/cmp-cmdline")
 Plug("hrsh7th/nvim-cmp")
 Plug("hrsh7th/cmp-vsnip")
 Plug("hrsh7th/vim-vsnip")
+Plug("onsails/lspkind.nvim")
 
 Plug("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
 Plug("j-hui/fidget.nvim")
