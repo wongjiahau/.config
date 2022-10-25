@@ -363,3 +363,6 @@ require("colorizer").setup()
 -- https://github.com/weilbith/nvim-code-action-menu#window-appearance
 vim.g.code_action_menu_show_details = false
 vim.g.code_action_menu_show_diff = false
+
+-- https://github.com/ggandor/leap.nvim#installation
+require("leap").add_default_mappings()
