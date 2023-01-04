@@ -49,6 +49,4 @@ Plug("WhoIsSethDaniel/mason-tool-installer.nvim")
 Plug("NvChad/nvim-colorizer.lua")
 Plug("weilbith/nvim-code-action-menu")
 
-Plug("ggandor/leap.nvim")
-
 vim.call("plug#end")
