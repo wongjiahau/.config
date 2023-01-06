@@ -242,7 +242,16 @@ local lsp_options = {
 	capabilities,
 }
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
-require("lspconfig")["tsserver"].setup(lsp_options)
+require("lspconfig")["tsserver"].setup({
+	on_attach,
+	capabilities,
+	init_options = {
+		preferences = {
+			-- Refer https://github.com/typescript-language-server/typescript-language-server/pull/218#issue-915599035
+			importModuleSpecifierPreference = "relative",
+		},
+	},
+})
 
 require("lspconfig")["rust_analyzer"].setup(lsp_options)
 
