@@ -1,0 +1,9 @@
+theme = "github_light"
+[editor]
+true-color = true
+bufferline = "always"
+line-number = "relative"
+cursorline = true
+cursorcolumn = true
+
+
