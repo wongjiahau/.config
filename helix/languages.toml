@@ -2,3 +2,12 @@
 name = "typescript"
 formatter = { command = "prettierd" }
 auto-format = true
+
+[[language]]
+scope = "source.kk"
+name = "kk"
+roots = []
+formatter = { command = "/Users/wongjiahau/repos/kk/target/debug/kk", args = ["format"] }
+file-types = [{ suffix = ".kk"}]
+auto-format = true
+grammar = "clojure"
