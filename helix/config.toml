@@ -5,5 +5,5 @@ bufferline = "always"
 line-number = "relative"
 cursorline = true
 cursorcolumn = true
-
+cursor-shape.insert = "bar"
 
