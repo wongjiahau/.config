@@ -1,7 +1,13 @@
 [[language]]
 name = "typescript"
-formatter = { command = "prettierd" }
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
+
+[[language]]
+name = "tsx"
+formatter = { command = 'prettier', args = ["--stdin-filename", "file.tsx"] }
+auto-format = true
+
 
 [[language]]
 scope = "source.kk"
@@ -11,3 +17,13 @@ formatter = { command = "/Users/wongjiahau/repos/kk/target/debug/kk", args = ["f
 file-types = [{ suffix = ".kk"}]
 auto-format = true
 grammar = "clojure"
+
+[[language]]
+name = "graphql"
+language-server = {command = "graphql-lsp", args = ["server", "-m", "stream"], config = {"graphql-config.load.legacy" = true}}
+
+[[language]]
+name = "sql"
+formatter = { command = "sql-formatter", args = ["-l", "postgresql", "-u"] }
+auto-format = true
+file-types = [{ suffix = ".sql"}]
