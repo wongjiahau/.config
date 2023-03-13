@@ -49,4 +49,7 @@ Plug("WhoIsSethDaniel/mason-tool-installer.nvim")
 Plug("NvChad/nvim-colorizer.lua")
 Plug("weilbith/nvim-code-action-menu")
 
+-- https://github.com/github/copilot.vim
+Plug("github/copilot.vim")
+
 vim.call("plug#end")
