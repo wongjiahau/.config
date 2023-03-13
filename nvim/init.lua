@@ -121,7 +121,11 @@ set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 -- colorscheme
 vim.o.background = "light"
 vim.g.vscode_transparent = 1
-vim.cmd([[colorscheme vscode]])
+require("vscode").setup({
+	transparent = true,
+	disable_nvimtree_bg = true,
+})
+require("vscode").load("light")
 
 -- tabline colors
 vim.cmd([[
@@ -261,7 +265,7 @@ require("lspconfig")["tsserver"].setup({
 require("lspconfig")["rust_analyzer"].setup(lsp_options)
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
-require("lspconfig").sumneko_lua.setup({
+require("lspconfig").lua_ls.setup({
 	settings = {
 		on_attach,
 		capabilities,
