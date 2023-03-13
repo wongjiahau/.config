@@ -113,6 +113,11 @@ o.inccommand = "nosplit" -- For viewing live substitution
 o.hidden = true -- to ensure terminal remains alive
 o.relativenumber = true
 
+-- grep
+vim.cmd([[
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+]])
+
 -- colorscheme
 vim.o.background = "light"
 vim.g.vscode_transparent = 1
