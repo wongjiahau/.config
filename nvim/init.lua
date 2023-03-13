@@ -253,7 +253,17 @@ require("lspconfig")["tsserver"].setup({
 	},
 })
 
-require("lspconfig")["rust_analyzer"].setup(lsp_options)
+require("lspconfig")["rust_analyzer"].setup({
+	on_attach = on_attach,
+	capabilities,
+	settings = {
+		["rust-analyzer"] = {
+			cargo = {
+				allFeatures = true,
+			},
+		},
+	},
+})
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
 require("lspconfig").sumneko_lua.setup({
