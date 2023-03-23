@@ -1,6 +1,16 @@
 [core]
+    pager = delta --light --side-by-side
     editor = nvim
 
 [pull]
     rebase = false
+
+[user]
+	name = wongjiahau
+	email = hou32hou@gmail.com
+[alias]
+	webui = !/Users/wongjiahau/repos/git-webui/release/libexec/git-core/git-webui
+
+[interactive]
+      diffFilter = delta --color-only --features=interactive
 
