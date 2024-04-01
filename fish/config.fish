@@ -48,3 +48,5 @@ else
         start_agent
     end
 end
+# Set up fzf key bindings
+fzf --fish | source
